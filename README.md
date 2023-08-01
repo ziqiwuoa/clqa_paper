@@ -1,13 +1,13 @@
-#Introduction
+# Introduction
 This repository contains the code and corresponding data for *Multiple-Choice Cross-Lingual Question Answering through Neural
 Machine Translation: An Empirical Study*
 
 <br>
 
-#Neural Machine Translation
+# Neural Machine Translation
 We train the machine translation models using [Fairseq](https://github.com/facebookresearch/fairseq) toolkit.
 
-##Requirements and Installation
+## Requirements and Installation
 - PyTorch version == 1.0.0/1.1.0
 - Python version >= 3.5
 - Clone repository to local machine
@@ -16,14 +16,14 @@ We train the machine translation models using [Fairseq](https://github.com/faceb
 pip install --editable .
 ```
 
-##Datasets
+## Datasets
 - United Nations Parallel Corpus: [https://conferences.unite.un.org/uncorpus](https://conferences.unite.un.org/uncorpus)
 - Conference on Machine Translation (WMT17) Data sets (We only use the test sets) [https://www.statmt.org/wmt17/translation-task.html#download](https://www.statmt.org/wmt17/translation-task.html#download)
 - UM-Corpus [http://nlp2ct.cis.umac.mo/um-corpus/](http://nlp2ct.cis.umac.mo/um-corpus/)
 - Web Inventory of Transcribed and Translated Talks (WIT3) [https://wit3.fbk.eu/](https://wit3.fbk.eu/) 
 
-##Pre-processing
-###Chinese -> English
+## Pre-processing
+### Chinese -> English
 1. Preprocess raw corpra based on `preprocess_2.sh` in [BERT paper preprocess repo](https://github.com/teslacool/preprocess_iwslt)
 2. Furture preprocess the tokenized data for fairseq based on their [documentation](https://fairseq.readthedocs.io/en/latest/getting_started.html#training-a-new-model)
     ```
@@ -33,7 +33,7 @@ pip install --editable .
         --destdir data-bin/un.en-zh
     ```
    
-###Arabic/French/Spanish -> English
+### Arabic/French/Spanish -> English
 For language pairs of AR->EN, FR->EN and ES->EN, we pre-process the corpora directly using the following script:
 ```shell
 SRC=ar
@@ -44,7 +44,7 @@ fairseq-preprocess --source-lang $SRC --target-lang en \
 --workers 20
 ```
 
-##Train a NMT model
+## Train a NMT model
 For the corpora with less than 1 million parallel sentences, we use the following script: 
 ```shell
 MODEL_NAME=transformer-base-x-en
@@ -96,7 +96,7 @@ data-bin/umeln.bpe20k.en-zh --source-lang zh --target-lang en \
 --save-dir checkpoints/$MODEL_NAME | tee -a checkpoints/$MODEL_NAME/training.log
 ```
 
-##Evaluation
+## Evaluation
 1. Generate the translation
     ```shell script
     SPLIT_NAME=xxx
@@ -126,10 +126,10 @@ data-bin/umeln.bpe20k.en-zh --source-lang zh --target-lang en \
 <br><br>
 
 
-#Question Answering
+# Question Answering
 The QA models are trained based on the code base from huggingface, for more information please see [transformers examples](https://github.com/huggingface/transformers/tree/master/examples/pytorch/language-modeling). 
 
-##Requirements and Installation
+## Requirements and Installation
 Huggingface transformers version 4.13.0 dev and above is required.
 
 Installing huggingface transformers:
@@ -137,7 +137,7 @@ Installing huggingface transformers:
 pip install git+https://github.com/huggingface/transformers
 ``` 
 
-##Datasets
+## Datasets
 The publicly accessible QA datasets are listed below:
 - DREAM [https://dataset.org/dream/](https://dataset.org/dream/)
 - RACE [https://github.com/qizhex/RACE_AR_baselines](https://github.com/qizhex/RACE_AR_baselines)
@@ -147,7 +147,7 @@ The publicly accessible QA datasets are listed below:
 The C3 and EXAMS datasets are translated to English by all the NMT models trained in this paper. The EXAMS dataset is also translated to English using Google Translate. We release all the translated data which which can be downloaded [here](https://drive.google.com/file/d/1X2VLGqFMk0GyX_lN2d84CHtwZ5UkgHOx/view).
 
 
-##Find-tune a QA Model
+## Find-tune a QA Model
 ```shell
 export MODEL_NAME=bert-base-uncased
 export FT_MODEL_NAME=xxx
@@ -170,7 +170,7 @@ accelerate launch run_race_no_trainer.py \
 --seed 42 | tee -a ./models-ft/$MODEL_NAME/$FT_MODEL_NAME.log
 ```
 
-##Evaluation
+## Evaluation
 ```shell
 export MODEL_NAME=xxx
 python run_eval.py \

@@ -146,6 +146,8 @@ The publicly accessible QA datasets are listed below:
 
 The C3 and EXAMS datasets are translated to English by all the NMT models trained in this paper. The EXAMS dataset is also translated to English using Google Translate. We release all the translated data which which can be downloaded [here](https://drive.google.com/file/d/1X2VLGqFMk0GyX_lN2d84CHtwZ5UkgHOx/view).
 
+## Pre-trained Language Model
+We fine-tune the QA model based on BERT BASE UNCASED model [https://huggingface.co/bert-base-uncased](https://huggingface.co/bert-base-uncased).
 
 ## Find-tune a QA Model
 ```shell

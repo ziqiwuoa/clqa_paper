@@ -17,6 +17,7 @@ pip install --editable .
 ```
 
 ## Datasets
+This repository does not host the training/dev/test data, please download them from the following links.
 - United Nations Parallel Corpus: [https://conferences.unite.un.org/uncorpus](https://conferences.unite.un.org/uncorpus)
 - Conference on Machine Translation (WMT17) Data sets (We only use the test sets) [https://www.statmt.org/wmt17/translation-task.html#download](https://www.statmt.org/wmt17/translation-task.html#download)
 - UM-Corpus [http://nlp2ct.cis.umac.mo/um-corpus/](http://nlp2ct.cis.umac.mo/um-corpus/)
@@ -138,7 +139,7 @@ pip install git+https://github.com/huggingface/transformers
 ``` 
 
 ## Datasets
-The publicly accessible QA datasets are listed below:
+This repository does not host the training/dev/test data, please download them from the following links.
 - DREAM [https://dataset.org/dream/](https://dataset.org/dream/)
 - RACE [https://github.com/qizhex/RACE_AR_baselines](https://github.com/qizhex/RACE_AR_baselines)
 - C3 [https://github.com/nlpdata/c3](https://github.com/nlpdata/c3)

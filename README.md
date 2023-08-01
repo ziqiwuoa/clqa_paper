@@ -5,7 +5,7 @@ Machine Translation: An Empirical Study*
 <br>
 
 # Neural Machine Translation
-We train the machine translation models using [Fairseq](https://github.com/facebookresearch/fairseq) toolkit.
+We train the machine translation models using [Fairseq](https://github.com/facebookresearch/fairseq) toolkit. The code is in the `fairseq` folder.
 
 ## Requirements and Installation
 - PyTorch version == 1.0.0/1.1.0
@@ -127,7 +127,7 @@ data-bin/umeln.bpe20k.en-zh --source-lang zh --target-lang en \
 
 
 # Question Answering
-The QA models are trained based on the code base from huggingface, for more information please see [transformers examples](https://github.com/huggingface/transformers/tree/master/examples/pytorch/language-modeling). 
+The QA models are trained based on the code base from huggingface, for more information please see [transformers examples](https://github.com/huggingface/transformers/tree/master/examples/pytorch/language-modeling). The code is in the `zhbert` folder.
 
 ## Requirements and Installation
 Huggingface transformers version 4.13.0 dev and above is required.
